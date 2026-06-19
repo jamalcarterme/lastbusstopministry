@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Last Bus Stop Ministry and give your tithe and offering.">
+    <title>Contact & Give - Last Bus Stop Ministry</title>
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { theme: { extend: { colors: { primary: '#0a2e5c', secondary: '#f9a826', accent: '#007a3d', light: '#f8f9fa', dark: '#212529' }, fontFamily: { sans: ['Inter','sans-serif'] } } } };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/loader.css">
+    <style>body { font-family: 'Inter', sans-serif; } .nav-link{font-weight:500;}</style>
+  </head>
+  <body class="bg-light">
+    <nav class="bg-white/90 backdrop-blur-md shadow fixed w-full z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-20 items-center">
+          <a href="/index.html" class="flex items-center space-x-3"><img class="h-12 w-auto" src="/assets/images/logo.png" alt="Logo"><span class="hidden sm:inline font-bold text-lg text-primary">Last Bus Stop Ministry</span></a>
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="/index.html" class="nav-link text-gray-700 hover:text-primary">Home</a>
+            <a href="/pages/about.html" class="nav-link text-gray-700 hover:text-primary">About</a>
+            <a href="/pages/events.html" class="nav-link text-gray-700 hover:text-primary">Events</a>
+            <a href="/pages/contact.html" class="nav-link text-primary">Contact & Give</a>
+            <button id="loginBtn" class="bg-primary text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-accent transition">Login / Register</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="pt-40 pb-20 bg-gradient-to-b from-white to-gray-50">
+      <div class="container mx-auto px-4 max-w-5xl">
+        <h1 class="text-4xl md:text-5xl font-bold text-primary mb-10 text-center">Contact & Give</h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-16">
+          <div class="bg-white p-8 rounded-2xl shadow-md">
+            <h2 class="text-2xl font-bold text-primary mb-6">Visit / Reach Us</h2>
+            <p class="text-gray-700 mb-3"><strong>📍 Address:</strong> 212, Old Ojo Road, Agboju, Amuwo-Odofin, Lagos, Nigeria</p>
+            <p class="text-gray-700 mb-3"><strong>📞 Phone:</strong> +234-805-551-5723</p>
+            <p class="text-gray-700 mb-3"><strong>✉️ Email:</strong> info@lastbusstopministry.org</p>
+            <p class="text-gray-700">We'd love to see you this Sunday at 9:00 AM!</p>
+          </div>
+          <div class="bg-white p-8 rounded-2xl shadow-md">
+            <h2 class="text-2xl font-bold text-primary mb-3">Give Online</h2>
+            <p class="text-gray-600 mb-4 text-sm">Make a payment to any account below, then <button id="giveLoginPrompt" class="text-secondary font-semibold hover:underline">log in to your member account</button> to upload your receipt for verification.</p>
+            <div id="giveAccountsList" class="grid grid-cols-1 gap-4"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-gradient-to-b from-dark to-black text-white py-12 text-center">
+      <img src="/assets/images/logo.png" class="h-14 mx-auto rounded-full mb-4" alt="Logo">
+      <p class="text-gray-400">&copy; 2026 Last Bus Stop Ministry. All rights reserved.</p>
+      <a href="/index.html" class="text-secondary hover:underline text-sm">← Back to Home</a>
+    </footer>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/loader.js"></script>
+    <script src="/js/auth.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        LBSM_AUTH.initNavbarAuthState();
+        if (!LBSM_API.isLoggedIn()) {
+          document.getElementById('loginBtn').addEventListener('click', function () { window.location.href = '/index.html'; });
+        }
+        document.getElementById('giveLoginPrompt').addEventListener('click', function () {
+          if (LBSM_API.isLoggedIn()) { window.location.href = '/dashboard.html#give'; }
+          else { window.location.href = '/index.html'; }
+        });
+
+        const container = document.getElementById('giveAccountsList');
+        // Active payment accounts requires authentication on the backend, so only
+        // attempt this for logged-in members; otherwise show a friendly prompt.
+        if (LBSM_API.isLoggedIn()) {
+          LBSM_LOADER.inline(container, 'Loading accounts...');
+          LBSM_API.paymentAccounts.active().then(function (data) {
+            const accounts = (data && data.accounts) || [];
+            if (!accounts.length) { container.innerHTML = '<p class="text-gray-400 text-sm">No active accounts at the moment.</p>'; return; }
+            container.innerHTML = accounts.map(function (acc) {
+              const bank = document.createElement('div'); bank.textContent = acc.bankName;
+              const num = document.createElement('div'); num.textContent = acc.accountNumber;
+              const name = document.createElement('div'); name.textContent = acc.accountName;
+              return '<div class="border border-gray-200 rounded-xl p-4"><p class="text-xs font-semibold text-secondary">' + bank.innerHTML + '</p><p class="text-xl font-bold text-primary">' + num.innerHTML + '</p><p class="text-sm text-gray-600">' + name.innerHTML + '</p></div>';
+            }).join('');
+          }).catch(function () { container.innerHTML = '<p class="text-gray-400 text-sm">Could not load payment accounts.</p>'; });
+        } else {
+          container.innerHTML = '<p class="text-gray-500 text-sm">Please log in as a member to view our official payment accounts and give securely.</p>';
+        }
+      });
+    </script>
+  </body>
+</html>

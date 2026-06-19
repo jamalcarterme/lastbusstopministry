@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Upcoming events and weekly programs at Last Bus Stop Ministry.">
+    <title>Events - Last Bus Stop Ministry</title>
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { theme: { extend: { colors: { primary: '#0a2e5c', secondary: '#f9a826', accent: '#007a3d', light: '#f8f9fa', dark: '#212529' }, fontFamily: { sans: ['Inter','sans-serif'] } } } };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/loader.css">
+    <style>body { font-family: 'Inter', sans-serif; } .nav-link{font-weight:500;}</style>
+  </head>
+  <body class="bg-light">
+    <nav class="bg-white/90 backdrop-blur-md shadow fixed w-full z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-20 items-center">
+          <a href="/index.html" class="flex items-center space-x-3"><img class="h-12 w-auto" src="/assets/images/logo.png" alt="Logo"><span class="hidden sm:inline font-bold text-lg text-primary">Last Bus Stop Ministry</span></a>
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="/index.html" class="nav-link text-gray-700 hover:text-primary">Home</a>
+            <a href="/pages/about.html" class="nav-link text-gray-700 hover:text-primary">About</a>
+            <a href="/pages/events.html" class="nav-link text-primary">Events</a>
+            <a href="/pages/contact.html" class="nav-link text-gray-700 hover:text-primary">Contact & Give</a>
+            <button id="loginBtn" class="bg-primary text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-accent transition">Login / Register</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="pt-40 pb-20 bg-gradient-to-b from-white to-gray-50">
+      <div class="container mx-auto px-4 max-w-5xl">
+        <h1 class="text-4xl md:text-5xl font-bold text-primary mb-10 text-center">Weekly Programs & Events</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-white p-8 rounded-2xl shadow-md">
+            <div class="flex justify-between items-start mb-3"><h3 class="text-xl font-bold text-primary">Sunday Worship Service</h3><span class="bg-secondary text-primary px-3 py-1 rounded-full text-sm font-semibold">Sundays</span></div>
+            <p class="text-gray-600 mb-1"><strong>Time:</strong> 9:00 AM – 12:00 PM</p>
+            <p class="text-gray-600 mb-3"><strong>Location:</strong> Main Sanctuary</p>
+            <p class="text-gray-700">Experience powerful worship and life-changing messages from God's Word.</p>
+          </div>
+          <div class="bg-white p-8 rounded-2xl shadow-md">
+            <div class="flex justify-between items-start mb-3"><h3 class="text-xl font-bold text-primary">Midweek Prayer Meeting</h3><span class="bg-secondary text-primary px-3 py-1 rounded-full text-sm font-semibold">Wednesdays</span></div>
+            <p class="text-gray-600 mb-1"><strong>Time:</strong> 6:00 PM – 8:00 PM</p>
+            <p class="text-gray-600 mb-3"><strong>Location:</strong> Prayer Hall</p>
+            <p class="text-gray-700">Join us for fervent prayer and spiritual breakthrough.</p>
+          </div>
+          <div class="bg-white p-8 rounded-2xl shadow-md">
+            <div class="flex justify-between items-start mb-3"><h3 class="text-xl font-bold text-primary">Youth Fellowship Night</h3><span class="bg-secondary text-primary px-3 py-1 rounded-full text-sm font-semibold">Fridays</span></div>
+            <p class="text-gray-600 mb-1"><strong>Time:</strong> 7:00 PM – 9:00 PM</p>
+            <p class="text-gray-600 mb-3"><strong>Location:</strong> Youth Center</p>
+            <p class="text-gray-700">Dynamic programs for young people to grow in faith and fellowship.</p>
+          </div>
+          <div class="bg-white p-8 rounded-2xl shadow-md">
+            <div class="flex justify-between items-start mb-3"><h3 class="text-xl font-bold text-primary">Women's Ministry Meeting</h3><span class="bg-secondary text-primary px-3 py-1 rounded-full text-sm font-semibold">Monthly</span></div>
+            <p class="text-gray-600 mb-1"><strong>Time:</strong> 9:00 AM – 1:00 PM</p>
+            <p class="text-gray-600 mb-3"><strong>Location:</strong> Main Sanctuary</p>
+            <p class="text-gray-700">Empowering women of God for greater impact in their homes and communities.</p>
+          </div>
+        </div>
+
+        <div class="mt-16">
+          <h2 class="text-3xl font-bold text-primary mb-6 text-center">Church Announcements</h2>
+          <div id="eventsAnnouncements" class="max-w-3xl mx-auto grid grid-cols-1 gap-4"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-gradient-to-b from-dark to-black text-white py-12 text-center">
+      <img src="/assets/images/logo.png" class="h-14 mx-auto rounded-full mb-4" alt="Logo">
+      <p class="text-gray-400">&copy; 2026 Last Bus Stop Ministry. All rights reserved.</p>
+      <a href="/index.html" class="text-secondary hover:underline text-sm">← Back to Home</a>
+    </footer>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/loader.js"></script>
+    <script src="/js/auth.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        LBSM_AUTH.initNavbarAuthState();
+        if (!LBSM_API.isLoggedIn()) {
+          document.getElementById('loginBtn').addEventListener('click', function () { window.location.href = '/index.html'; });
+        }
+        const container = document.getElementById('eventsAnnouncements');
+        LBSM_LOADER.inline(container, 'Loading announcements...');
+        LBSM_API.announcements.homepage().then(function (data) {
+          const items = (data && data.announcements) || [];
+          if (!items.length) { container.innerHTML = '<p class="text-center text-gray-400">No announcements right now.</p>'; return; }
+          container.innerHTML = items.map(function (a) {
+            const div = document.createElement('div'); div.textContent = a.content;
+            const titleDiv = document.createElement('div'); titleDiv.textContent = a.title;
+            return '<div class="bg-white p-6 rounded-xl shadow-md"><h3 class="font-bold text-primary mb-2">' + titleDiv.innerHTML + '</h3><p class="text-gray-600 text-sm">' + div.innerHTML + '</p></div>';
+          }).join('');
+        }).catch(function () { container.innerHTML = '<p class="text-center text-gray-400">Unable to load announcements.</p>'; });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Dashboard - Last Bus Stop Ministry</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#0a2e5c',
+              secondary: '#f9a826',
+              accent: '#007a3d',
+              light: '#f8f9fa',
+              dark: '#212529',
+            },
+            fontFamily: { sans: ['Inter', 'sans-serif'] },
+            boxShadow: {
+              glass: '0 8px 32px rgba(10, 46, 92, 0.1)',
+              elevated: '0 20px 60px rgba(0, 0, 0, 0.15)',
+            },
+          },
+        },
+      };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/loader.css">
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <style>
+      body { font-family: 'Inter', sans-serif; background: #f4f6f9; }
+      .nav-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.7rem 1rem; border-radius: 0.6rem; color: #4b5563; font-weight: 500; transition: all 0.15s ease; cursor: pointer; }
+      .nav-item:hover { background: rgba(10,46,92,0.06); color: #0a2e5c; }
+      .nav-item.active { background: linear-gradient(135deg, #0a2e5c, #007a3d); color: #fff; box-shadow: 0 6px 16px rgba(10,46,92,0.25); }
+      .card { background: #fff; border-radius: 1rem; box-shadow: 0 4px 20px rgba(10,46,92,0.06); border: 1px solid rgba(10,46,92,0.05); }
+      .badge { display: inline-flex; align-items: center; padding: 0.2rem 0.65rem; border-radius: 9999px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.3px; }
+      .badge-pending { background: #fff4dd; color: #b3760b; }
+      .badge-approved { background: #e3f8ec; color: #007a3d; }
+      .badge-rejected { background: #fde8e8; color: #c0392b; }
+      .badge-active { background: #e3f8ec; color: #007a3d; }
+      .badge-inactive { background: #f1f2f4; color: #6b7280; }
+      .input-field { width: 100%; padding: 0.65rem 0.9rem; border: 1px solid #e2e5ea; border-radius: 0.6rem; background: #fff; font-size: 0.92rem; }
+      .input-field:focus { outline: none; border-color: #f9a826; box-shadow: 0 0 0 3px rgba(249,168,38,0.15); }
+      .btn-primary { background: linear-gradient(135deg, #0a2e5c, #007a3d); color: #fff; font-weight: 600; padding: 0.65rem 1.4rem; border-radius: 0.6rem; transition: opacity .15s; }
+      .btn-primary:hover { opacity: 0.9; }
+      .btn-secondary { background: #fff; border: 1px solid #d8dce3; color: #374151; font-weight: 600; padding: 0.6rem 1.3rem; border-radius: 0.6rem; }
+      .btn-danger { background: #fde8e8; color: #c0392b; font-weight: 600; padding: 0.5rem 1.1rem; border-radius: 0.6rem; }
+      .btn-success { background: #e3f8ec; color: #007a3d; font-weight: 600; padding: 0.5rem 1.1rem; border-radius: 0.6rem; }
+      table { width: 100%; border-collapse: collapse; }
+      th { text-align: left; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: #6b7280; padding: 0.7rem 0.9rem; border-bottom: 2px solid #eef0f3; }
+      td { padding: 0.85rem 0.9rem; border-bottom: 1px solid #f1f2f4; font-size: 0.9rem; vertical-align: middle; }
+      tr:hover td { background: rgba(10,46,92,0.02); }
+      #sidebar { transition: transform 0.25s ease; }
+      @media (max-width: 1023px) {
+        #sidebar { position: fixed; top: 0; left: 0; height: 100vh; transform: translateX(-100%); z-index: 50; }
+        #sidebar.open { transform: translateX(0); }
+      }
+      .modal-overlay { position: fixed; inset: 0; background: rgba(10,46,92,0.45); backdrop-filter: blur(3px); display: flex; align-items: center; justify-content: center; z-index: 100; padding: 1rem; }
+    </style>
+  </head>
+  <body class="text-dark">
+    <div id="lbsmAppLoading" class="lbsm-loader-overlay lbsm-active" style="position:fixed;">
+      <div class="lbsm-loader-stage">
+        <div class="lbsm-bounce-track">
+          <div class="lbsm-bounce-ring"></div>
+          <div class="lbsm-bounce-logo"><img src="/assets/images/logo.png" alt="Loading"></div>
+        </div>
+        <div class="lbsm-bounce-shadow"></div>
+        <div class="lbsm-loader-dots"><span></span><span></span><span></span><span></span></div>
+        <p class="lbsm-loader-text">Preparing your dashboard...</p>
+      </div>
+    </div>
+
+    <div class="flex min-h-screen">
+      <!-- Sidebar -->
+      <aside id="sidebar" class="w-72 bg-white border-r border-gray-100 flex flex-col">
+        <div class="flex items-center gap-3 px-6 py-5 border-b border-gray-100">
+          <img src="/assets/images/logo.png" class="h-10 w-10 rounded-full object-cover" alt="Logo">
+          <div>
+            <p class="font-bold text-primary leading-tight">Last Bus Stop</p>
+            <p class="text-xs text-gray-400 leading-tight">Ministry Portal</p>
+          </div>
+          <button id="closeSidebarBtn" class="ml-auto lg:hidden text-gray-400 text-xl">✕</button>
+        </div>
+        <nav id="sidebarNav" class="flex-1 px-4 py-5 space-y-1 overflow-y-auto"></nav>
+        <div class="px-4 py-4 border-t border-gray-100">
+          <div id="sidebarUserCard" class="flex items-center gap-3 px-2 py-2 mb-2"></div>
+          <button id="logoutBtn" class="nav-item w-full text-red-500 hover:bg-red-50">
+            <span>🚪</span><span>Logout</span>
+          </button>
+        </div>
+      </aside>
+
+      <!-- Main -->
+      <div class="flex-1 flex flex-col min-w-0">
+        <header class="bg-white border-b border-gray-100 px-4 sm:px-8 py-4 flex items-center justify-between sticky top-0 z-30">
+          <div class="flex items-center gap-3">
+            <button id="openSidebarBtn" class="lg:hidden text-gray-500 text-2xl">☰</button>
+            <h1 id="pageTitle" class="text-xl sm:text-2xl font-bold text-primary">Overview</h1>
+          </div>
+          <div class="flex items-center gap-4">
+            <button id="notifBtn" class="relative text-gray-500 hover:text-primary text-xl" title="Notifications">
+              🔔
+              <span id="notifBadge" class="hidden absolute -top-1 -right-1 bg-secondary text-primary text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center"></span>
+            </button>
+            <a href="index.html" class="text-sm text-gray-500 hover:text-primary hidden sm:inline">← Back to site</a>
+          </div>
+        </header>
+
+        <main id="viewContainer" class="flex-1 p-4 sm:p-8"></main>
+      </div>
+    </div>
+
+    <!-- Notification panel -->
+    <div id="notifPanel" class="hidden fixed top-16 right-4 sm:right-8 w-[92vw] max-w-sm bg-white rounded-xl shadow-elevated border border-gray-100 z-40 max-h-[70vh] overflow-y-auto">
+      <div class="flex items-center justify-between px-4 py-3 border-b border-gray-100">
+        <p class="font-bold text-primary">Notifications</p>
+        <button id="markAllReadBtn" class="text-xs text-secondary font-semibold hover:underline">Mark all read</button>
+      </div>
+      <div id="notifList" class="divide-y divide-gray-50"></div>
+    </div>
+
+    <!-- Generic modal mount -->
+    <div id="modalRoot"></div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/loader.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/dashboard.js"></script>
+  </body>
+</html>

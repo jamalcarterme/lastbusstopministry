@@ -1,0 +1,38 @@
+# Last Bus Stop Ministry robots.txt
+# This file tells search engines how to crawl and index our website
+
+# Allow all search engines to crawl the site
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /*.pdf
+Disallow: /api/
+
+# Specific rules for Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Specific rules for Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Block bad bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+# Sitemap location
+Sitemap: https://lastbusstopministry.org/sitemap.xml
+
+# Crawl delay for other bots
+Crawl-delay: 1
+Request-rate: 1/5s

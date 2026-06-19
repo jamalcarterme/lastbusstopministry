@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Insights, teachings, and church updates from Last Bus Stop Ministry.">
+    <title>Blog - Last Bus Stop Ministry</title>
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { theme: { extend: { colors: { primary: '#0a2e5c', secondary: '#f9a826', accent: '#007a3d', light: '#f8f9fa', dark: '#212529' }, fontFamily: { sans: ['Inter','sans-serif'] } } } };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/loader.css">
+    <style>body { font-family: 'Inter', sans-serif; } .nav-link{font-weight:500;}</style>
+  </head>
+  <body class="bg-light">
+    <nav class="bg-white/90 backdrop-blur-md shadow fixed w-full z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-20 items-center">
+          <a href="/index.html" class="flex items-center space-x-3"><img class="h-12 w-auto" src="/assets/images/logo.png" alt="Logo"><span class="hidden sm:inline font-bold text-lg text-primary">Last Bus Stop Ministry</span></a>
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="/index.html" class="nav-link text-gray-700 hover:text-primary">Home</a>
+            <a href="/pages/about.html" class="nav-link text-gray-700 hover:text-primary">About</a>
+            <a href="/pages/events.html" class="nav-link text-gray-700 hover:text-primary">Events</a>
+            <a href="/pages/contact.html" class="nav-link text-gray-700 hover:text-primary">Contact & Give</a>
+            <button id="loginBtn" class="bg-primary text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-accent transition">Login / Register</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="pt-40 pb-20 bg-gradient-to-b from-white to-gray-50">
+      <div class="container mx-auto px-4 max-w-5xl">
+        <h1 class="text-4xl md:text-5xl font-bold text-primary mb-10 text-center">From Our Blog</h1>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white rounded-xl overflow-hidden shadow-md">
+            <img src="/assets/images/blog/prayer.jpg" alt="The Power of Persistent Prayer" class="w-full h-48 object-cover">
+            <div class="p-6"><p class="text-secondary text-xs font-semibold">By Pastor Chinyere Amaechi</p><h3 class="text-lg font-bold text-primary mt-2 mb-2">The Power of Persistent Prayer</h3><p class="text-gray-600 text-sm">Discover how consistent prayer can transform your spiritual life and bring breakthrough.</p></div>
+          </div>
+          <div class="bg-white rounded-xl overflow-hidden shadow-md">
+            <img src="/assets/images/blog/children.jpg" alt="Raising Godly Children" class="w-full h-48 object-cover">
+            <div class="p-6"><p class="text-secondary text-xs font-semibold">By Evangelist Solomon Amaechi</p><h3 class="text-lg font-bold text-primary mt-2 mb-2">Raising Godly Children in Modern Nigeria</h3><p class="text-gray-600 text-sm">Practical biblical wisdom for parents navigating today's world.</p></div>
+          </div>
+          <div class="bg-white rounded-xl overflow-hidden shadow-md">
+            <img src="/assets/images/blog/spirit.jpg" alt="The Holy Spirit and Spiritual Gifts" class="w-full h-48 object-cover">
+            <div class="p-6"><p class="text-secondary text-xs font-semibold">By Pastor Chinyere Amaechi</p><h3 class="text-lg font-bold text-primary mt-2 mb-2">The Holy Spirit and Spiritual Gifts</h3><p class="text-gray-600 text-sm">Understanding the manifestations of the Holy Spirit and your spiritual gifts.</p></div>
+          </div>
+        </div>
+        <p class="text-center text-gray-400 text-sm mt-12">More articles coming soon.</p>
+      </div>
+    </section>
+
+    <footer class="bg-gradient-to-b from-dark to-black text-white py-12 text-center">
+      <img src="/assets/images/logo.png" class="h-14 mx-auto rounded-full mb-4" alt="Logo">
+      <p class="text-gray-400">&copy; 2026 Last Bus Stop Ministry. All rights reserved.</p>
+      <a href="/index.html" class="text-secondary hover:underline text-sm">← Back to Home</a>
+    </footer>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/loader.js"></script>
+    <script src="/js/auth.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        LBSM_AUTH.initNavbarAuthState();
+        if (!LBSM_API.isLoggedIn()) {
+          document.getElementById('loginBtn').addEventListener('click', function () { window.location.href = '/index.html'; });
+        }
+      });
+    </script>
+  </body>
+</html>

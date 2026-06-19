@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Last Bus Stop Ministry - Best church in Lagos. Top churches in Nigeria. Church in Amuwo Odofin. Church near Agboju Lagos.">
+    <meta name="keywords" content="Best church in Lagos, Top churches in Nigeria, Church in Amuwo Odofin, Church near Agboju Lagos, Last Bus Stop Ministry Lagos">
+    <meta name="author" content="Last Bus Stop Ministry">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Last Bus Stop Ministry - Best Church in Lagos">
+    <meta property="og:description" content="Experience powerful worship and life-changing messages at Last Bus Stop Ministry, Lagos.">
+    <meta property="og:image" content="/assets/images/logo.png">
+    <meta property="og:url" content="https://lastbusstopministry.org">
+    <meta property="og:site_name" content="Last Bus Stop Ministry">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Last Bus Stop Ministry - Best Church in Lagos">
+    <meta property="twitter:description" content="Experience powerful worship and life-changing messages at Last Bus Stop Ministry, Lagos.">
+    <meta property="twitter:image" content="/assets/images/logo.png">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+
+    <!-- Schema.org markup for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ReligiousOrganization",
+      "name": "Last Bus Stop Ministry",
+      "url": "https://lastbusstopministry.org",
+      "logo": "/assets/images/logo.png",
+      "description": "A vibrant Nigerian church committed to spreading the gospel and transforming lives through Christ.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "212, Old Ojo Road",
+        "addressLocality": "Agboju, Amuwo-Odofin",
+        "addressRegion": "Lagos",
+        "postalCode": "102102",
+        "addressCountry": "NG"
+      },
+      "telephone": "+234-800-000-0000",
+      "email": "info@lastbusstopministry.org",
+      "sameAs": [
+        "https://www.facebook.com/lastbusstopministry",
+        "https://www.instagram.com/lastbusstopministry",
+        "https://www.youtube.com/lastbusstopministry"
+      ]
+    }
+    </script>
+
+    <title>Last Bus Stop Ministry - Best Church in Lagos</title>
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#0a2e5c',
+              secondary: '#f9a826',
+              accent: '#007a3d',
+              light: '#f8f9fa',
+              dark: '#212529',
+              'glass-light': 'rgba(255, 255, 255, 0.1)',
+              'glass-dark': 'rgba(10, 46, 92, 0.1)'
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif']
+            },
+            backdropBlur: {
+              glass: '10px'
+            },
+            boxShadow: {
+              'glass': '0 8px 32px rgba(10, 46, 92, 0.1)',
+              'glow': '0 0 20px rgba(249, 168, 38, 0.3)',
+              'elevated': '0 20px 60px rgba(0, 0, 0, 0.15)'
+            }
+          }
+        }
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/loader.css">
+    <style>
+      * {
+        transition-property: background-color, border-color, color, fill, stroke;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 150ms;
+      }
+
+      body { 
+        font-family: 'Inter', sans-serif;
+        background: linear-gradient(135deg, #f8f9fa 0%, #f0f3f7 100%);
+      }
+
+      .hero-gradient { 
+        background: linear-gradient(135deg, rgba(10,46,92,0.85) 0%, rgba(0,122,61,0.75) 100%);
+      }
+
+      .glass-effect {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .glass-dark-effect {
+        background: rgba(10, 46, 92, 0.1);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(10, 46, 92, 0.2);
+      }
+
+      .hover-scale { 
+        transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+
+      .hover-scale:hover { 
+        transform: translateY(-8px);
+      }
+
+      .slide-in { 
+        opacity: 0; 
+        transform: translateY(30px); 
+        transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+
+      .slide-in.visible { 
+        opacity: 1; 
+        transform: translateY(0);
+      }
+
+      .fade-in {
+        animation: fadeIn 0.6s ease-out forwards;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .btn-modern {
+        position: relative;
+        overflow: hidden;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+
+      .btn-modern::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.2);
+        transition: left 0.3s ease;
+        z-index: 0;
+      }
+
+      .btn-modern:hover::before {
+        left: 100%;
+      }
+
+      .btn-modern span {
+        position: relative;
+        z-index: 1;
+      }
+
+      .nav-link {
+        position: relative;
+        font-weight: 500;
+        font-size: 0.95rem;
+        letter-spacing: 0.3px;
+      }
+
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #f9a826, #007a3d);
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .card-modern {
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(10, 46, 92, 0.1);
+        backdrop-filter: blur(10px);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card-modern::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #f9a826, #007a3d);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+
+      .card-modern:hover::before {
+        transform: scaleX(1);
+      }
+
+      .stat-card {
+        background: linear-gradient(135deg, rgba(249, 168, 38, 0.1) 0%, rgba(0, 122, 61, 0.1) 100%);
+        border: 1px solid rgba(249, 168, 38, 0.2);
+      }
+
+      .gradient-text {
+        background: linear-gradient(135deg, #0a2e5c 0%, #007a3d 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .smooth-scroll {
+        scroll-behavior: smooth;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      button:focus-visible,
+      a:focus-visible {
+        outline: 2px solid #f9a826;
+        outline-offset: 2px;
+      }
+
+      .floating-shapes {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        overflow: hidden;
+        pointer-events: none;
+      }
+
+      .shape {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.05;
+      }
+
+      .shape-1 {
+        width: 400px;
+        height: 400px;
+        background: linear-gradient(135deg, #0a2e5c, #007a3d);
+        top: -100px;
+        right: -100px;
+        animation: float 8s ease-in-out infinite;
+      }
+
+      .shape-2 {
+        width: 300px;
+        height: 300px;
+        background: linear-gradient(135deg, #f9a826, #0a2e5c);
+        bottom: -50px;
+        left: -50px;
+        animation: float 12s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%, 100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(30px);
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-light smooth-scroll">
+    <!-- Floating Background Shapes -->
+    <div class="floating-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="bg-white/80 backdrop-blur-md shadow-glass fixed w-full z-50 border-b border-white/20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-20">
+          <div class="flex items-center">
+            <a href="index.html" class="flex-shrink-0 flex items-center space-x-3 hover:opacity-80 transition">
+              <img class="h-12 w-auto" src="/assets/images/logo.png" alt="Last Bus Stop Ministry Logo">
+              <span class="hidden sm:inline font-bold text-lg gradient-text">Last Bus Stop Ministry</span>
+            </a>
+          </div>
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="index.html" class="nav-link text-primary">Home</a>
+            <a href="pages/about.html" class="nav-link text-gray-700 hover:text-primary">About</a>
+            <a href="pages/events.html" class="nav-link text-gray-700 hover:text-primary">Events</a>
+            <a href="pages/contact.html" class="nav-link text-gray-700 hover:text-primary">Contact & Give</a>
+            <button id="loginBtn" class="btn-modern bg-primary text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-accent transition"><span>Login / Register</span></button>
+          </div>
+          <div class="md:hidden flex items-center">
+            <button id="mobileMenuButton" class="text-gray-700 hover:text-secondary focus:outline-none transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-200/30">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+          <a href="index.html" class="block text-primary hover:text-secondary font-medium py-2 transition">Home</a>
+          <a href="pages/about.html" class="block text-gray-700 hover:text-secondary font-medium py-2 transition">About</a>
+          <a href="pages/events.html" class="block text-gray-700 hover:text-secondary font-medium py-2 transition">Events</a>
+          <a href="pages/contact.html" class="block text-gray-700 hover:text-secondary font-medium py-2 transition">Contact & Give</a>
+          <button id="mobileLoginBtn" class="w-full mt-2 btn-modern bg-primary text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-accent transition"><span>Login / Register</span></button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center text-white overflow-hidden pt-20">
+      <div class="absolute inset-0 z-0">
+        <img src="/assets/images/hero-worship.jpg" alt="Nigerian congregation in powerful worship" class="w-full h-full object-cover">
+        <div class="hero-gradient absolute inset-0"></div>
+      </div>
+      <div class="container mx-auto px-4 z-10 text-center py-20">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 slide-in leading-tight">Welcome to Last Bus Stop Ministry</h1>
+        <p class="text-xl md:text-2xl mb-8 slide-in text-white/90 font-light" style="animation-delay: 0.2s">Where Lives Are Transformed Through Christ</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center slide-in" style="animation-delay: 0.4s">
+          <a href="#footer" class="btn-modern bg-secondary text-primary px-8 py-4 rounded-lg font-semibold hover:shadow-glow transform transition inline-block">
+            <span>Join Us Sunday</span>
+          </a>
+          <a href="#footer" class="btn-modern border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition inline-block">
+            <span>Submit Prayer Request</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="py-24 bg-gradient-to-b from-white to-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center gap-12">
+          <div class="md:w-1/2">
+            <h2 class="text-4xl md:text-5xl font-bold text-primary mb-8 slide-in leading-tight">About Our Church</h2>
+            <p class="text-gray-700 mb-6 slide-in text-lg leading-relaxed" style="animation-delay: 0.1s">Last Bus Stop Ministry is a vibrant, Spirit-filled church located in Agboju, Amuwo-Odofin, Lagos. We are dedicated to spreading the unadulterated Word of God and making disciples of all nations, starting from our community.</p>
+            <p class="text-gray-700 mb-8 slide-in text-lg leading-relaxed" style="animation-delay: 0.2s">Our services are filled with powerful worship, dynamic preaching, and a warm Nigerian hospitality that makes every visitor feel like family. We believe in the transformative power of Christ and are committed to equipping believers for effective Christian living.</p>
+            <div class="slide-in" style="animation-delay: 0.3s">
+              <a href="pages/about.html" class="btn-modern inline-block bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:shadow-elevated hover:bg-accent transition">Learn More</a>
+            </div>
+          </div>
+          <div class="md:w-1/2 slide-in" style="animation-delay: 0.2s">
+            <img src="/assets/images/blog/spirit.jpg" alt="Spirit-filled worship and spiritual growth at Last Bus Stop Ministry" class="rounded-2xl shadow-elevated w-full h-auto object-cover">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission, Vision, Values -->
+    <section class="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4 slide-in">Our Foundation</h2>
+          <p class="text-gray-600 text-lg max-w-2xl mx-auto slide-in" style="animation-delay: 0.1s">The core principles that guide our ministry and mission</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="card-modern p-10 rounded-2xl shadow-glass text-center hover-scale slide-in" style="animation-delay: 0.1s">
+            <div class="text-secondary text-6xl mb-6">🎯</div>
+            <h3 class="text-2xl font-bold text-primary mb-4">Mission</h3>
+            <p class="text-gray-700 leading-relaxed">To preach the unadulterated Word of God and make disciples of all nations, starting from our community in Lagos.</p>
+          </div>
+          <div class="card-modern p-10 rounded-2xl shadow-glass text-center hover-scale slide-in" style="animation-delay: 0.2s">
+            <div class="text-secondary text-6xl mb-6">🔭</div>
+            <h3 class="text-2xl font-bold text-primary mb-4">Vision</h3>
+            <p class="text-gray-700 leading-relaxed">To see lives transformed by the power of the Holy Spirit, families restored, and communities impacted for Christ.</p>
+          </div>
+          <div class="card-modern p-10 rounded-2xl shadow-glass text-center hover-scale slide-in" style="animation-delay: 0.3s">
+            <div class="text-secondary text-6xl mb-6">❤️</div>
+            <h3 class="text-2xl font-bold text-primary mb-4">Core Values</h3>
+            <p class="text-gray-700 leading-relaxed">Worship, Prayer, Fellowship, Evangelism, and Discipleship rooted in African Christian excellence.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leadership -->
+    <section class="py-24 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4 slide-in">Our Leadership</h2>
+          <p class="text-gray-600 text-lg max-w-2xl mx-auto slide-in" style="animation-delay: 0.1s">Dedicated servants leading with wisdom and compassion</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+          <div class="text-center hover-scale slide-in" style="animation-delay: 0.1s">
+            <div class="relative w-56 h-56 mx-auto mb-8">
+              <img src="/assets/images/leaders/pastor.jpg" alt="Pastor Chinyere Amaechi - Senior Pastor" class="w-full h-full rounded-full object-cover border-4 border-secondary shadow-elevated">
+              <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-secondary/20 to-transparent"></div>
+            </div>
+            <h3 class="text-xl font-bold text-primary">Pastor Chinyere Amaechi</h3>
+            <p class="text-secondary font-semibold mt-2">Senior Pastor</p>
+            <p class="text-gray-600 mt-3">Spiritual leader with a passion for equipping believers</p>
+          </div>
+          <div class="text-center hover-scale slide-in" style="animation-delay: 0.2s">
+            <div class="relative w-56 h-56 mx-auto mb-8">
+              <img src="/assets/images/leaders/youth.jpg" alt="Youth Leader" class="w-full h-full rounded-full object-cover border-4 border-secondary shadow-elevated">
+              <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-secondary/20 to-transparent"></div>
+            </div>
+            <h3 class="text-xl font-bold text-primary">Youth Leader</h3>
+            <p class="text-secondary font-semibold mt-2">Youth & Young Adults</p>
+            <p class="text-gray-600 mt-3">Inspiring the next generation in faith</p>
+          </div>
+          <div class="text-center hover-scale slide-in" style="animation-delay: 0.3s">
+            <div class="relative w-56 h-56 mx-auto mb-8">
+              <img src="/assets/images/leaders/women.jpg" alt="Women Ministry Leader" class="w-full h-full rounded-full object-cover border-4 border-secondary shadow-elevated">
+              <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-secondary/20 to-transparent"></div>
+            </div>
+            <h3 class="text-xl font-bold text-primary">Women Ministry Leader</h3>
+            <p class="text-secondary font-semibold mt-2">Women's Ministry</p>
+            <p class="text-gray-600 mt-3">Empowering women in their faith journey</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ministries -->
+    <section class="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4 slide-in">Our Ministries</h2>
+          <p class="text-gray-600 text-lg max-w-2xl mx-auto slide-in" style="animation-delay: 0.1s">Serving different seasons and stages of life</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="card-modern rounded-2xl overflow-hidden shadow-glass hover-scale slide-in group" style="animation-delay: 0.1s">
+            <div class="h-56 overflow-hidden">
+              <img src="/assets/images/departments/children.jpg" alt="Children's Ministry" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+            </div>
+            <div class="p-8">
+              <h3 class="text-xl font-bold text-primary mb-3">Children's Church</h3>
+              <p class="text-gray-700 leading-relaxed">We teach the next generation the Word of God through fun, interactive, and culturally relevant programs.</p>
+            </div>
+          </div>
+          <div class="card-modern rounded-2xl overflow-hidden shadow-glass hover-scale slide-in group" style="animation-delay: 0.2s">
+            <div class="h-56 overflow-hidden">
+              <img src="/assets/images/departments/women.jpg" alt="Women Ministry" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+            </div>
+            <div class="p-8">
+              <h3 class="text-xl font-bold text-primary mb-3">Women Department</h3>
+              <p class="text-gray-700 leading-relaxed">Empowering women to transform families and communities with the Word of God in today's challenging world.</p>
+            </div>
+          </div>
+          <div class="card-modern rounded-2xl overflow-hidden shadow-glass hover-scale slide-in group" style="animation-delay: 0.3s">
+            <div class="h-56 overflow-hidden">
+              <img src="/assets/images/departments/music.jpg" alt="Music Ministry" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+            </div>
+            <div class="p-8">
+              <h3 class="text-xl font-bold text-primary mb-3">Music Ministry</h3>
+              <p class="text-gray-700 leading-relaxed">Leading powerful worship through Nigerian gospel music, choirs, and instrumental excellence.</p>
+            </div>
+          </div>
+          <div class="card-modern rounded-2xl overflow-hidden shadow-glass hover-scale slide-in group" style="animation-delay: 0.4s">
+            <div class="h-56 overflow-hidden">
+              <img src="/assets/images/departments/missions.jpg" alt="Missions Ministry" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+            </div>
+            <div class="p-8">
+              <h3 class="text-xl font-bold text-primary mb-3">Missions</h3>
+              <p class="text-gray-700 leading-relaxed">Taking the gospel beyond our walls to unreached communities in Nigeria and beyond.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-24 relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary via-primary to-accent"></div>
+      <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-20 left-10 w-72 h-72 bg-secondary rounded-full mix-blend-multiply filter blur-3xl"></div>
+        <div class="absolute bottom-20 right-10 w-72 h-72 bg-accent rounded-full mix-blend-multiply filter blur-3xl"></div>
+      </div>
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 slide-in">What Our Members Say</h2>
+          <p class="text-white/80 text-lg slide-in" style="animation-delay: 0.1s">Real testimonies of God's transformative power</p>
+        </div>
+        <div class="relative max-w-4xl mx-auto">
+          <div id="testimonialsSlider" class="overflow-hidden">
+            <div id="testimonialSlides" class="flex transition-transform duration-500">
+              <!-- Testimonials will be added by JavaScript -->
+            </div>
+          </div>
+          <button id="prevTestimonial" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur text-white p-3 rounded-full transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button id="nextTestimonial" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur text-white p-3 rounded-full transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+        <div id="testimonialIndicators" class="flex justify-center mt-12 space-x-3">
+          <!-- Indicators will be added by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Preview -->
+    <section class="py-24 bg-gradient-to-b from-white to-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4 slide-in">From Our Blog</h2>
+          <p class="text-gray-600 text-lg max-w-2xl mx-auto slide-in" style="animation-delay: 0.1s">Insights, teachings, and church updates</p>
+        </div>
+        <div id="blogPostsContainer" class="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <!-- Blog posts will be populated by JavaScript -->
+        </div>
+        <div class="text-center mt-16">
+          <a href="pages/blog.html" class="btn-modern inline-block bg-gradient-to-r from-primary to-accent text-white px-10 py-4 rounded-lg font-semibold hover:shadow-elevated transition">
+            <span>View All Articles</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Church Announcements -->
+    <section class="py-24 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4 slide-in">Church Announcements</h2>
+          <p class="text-gray-600 text-lg max-w-2xl mx-auto slide-in" style="animation-delay: 0.1s">Stay up to date with what's happening at Last Bus Stop Ministry</p>
+        </div>
+        <div id="announcementsContainer" class="max-w-3xl mx-auto grid grid-cols-1 gap-6"></div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="bg-gradient-to-b from-dark to-darker text-white py-20">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+          <div>
+            <img src="/assets/images/logo.png" alt="Last Bus Stop Ministry Logo" class="h-16 rounded-full mb-6 shadow-elevated">
+            <p class="text-gray-300 leading-relaxed mb-8">A vibrant Nigerian church committed to spreading the gospel and transforming lives through Christ.</p>
+            <div class="flex space-x-4">
+              <a href="#" class="bg-white/10 hover:bg-secondary text-white p-3 rounded-full transition" aria-label="Facebook">
+                <span class="text-sm font-semibold">f</span>
+              </a>
+              <a href="#" class="bg-white/10 hover:bg-secondary text-white p-3 rounded-full transition" aria-label="Instagram">
+                <span class="text-sm font-semibold">📸</span>
+              </a>
+              <a href="#" class="bg-white/10 hover:bg-secondary text-white p-3 rounded-full transition" aria-label="YouTube">
+                <span class="text-sm font-semibold">▶</span>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-8 flex items-center">
+              <span class="w-1 h-8 bg-secondary mr-3 rounded"></span>Quick Links
+            </h3>
+            <ul class="space-y-4">
+              <li><a href="index.html" class="text-gray-300 hover:text-secondary transition">Home</a></li>
+              <li><a href="pages/about.html" class="text-gray-300 hover:text-secondary transition">About Us</a></li>
+              <li><a href="pages/events.html" class="text-gray-300 hover:text-secondary transition">Events</a></li>
+              <li><a href="pages/blog.html" class="text-gray-300 hover:text-secondary transition">Blog</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-8 flex items-center">
+              <span class="w-1 h-8 bg-secondary mr-3 rounded"></span>Ministries
+            </h3>
+            <ul class="space-y-4">
+              <li><a href="#" class="text-gray-300 hover:text-secondary transition">Children's Church</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-secondary transition">Youth Fellowship</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-secondary transition">Women's Ministry</a></li>
+              <li><a href="#" class="text-gray-300 hover:text-secondary transition">Music Ministry</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-8 flex items-center">
+              <span class="w-1 h-8 bg-secondary mr-3 rounded"></span>Contact Info
+            </h3>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <span class="mr-3 text-secondary">📍</span>
+                <span class="text-gray-300">212, Old Ojo Road, Agboju, Amuwo-Odofin, Lagos, Nigeria</span>
+              </li>
+              <li class="flex items-start">
+                <span class="mr-3 text-secondary">📞</span>
+                <span class="text-gray-300">+234-805-551-5723</span>
+              </li>
+              <li class="flex items-start">
+                <span class="mr-3 text-secondary">✉️</span>
+                <span class="text-gray-300">info@lastbusstopministry.org</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-white/10 pt-8 text-center">
+          <p class="text-gray-400">&copy; 2026 Last Bus Stop Ministry. All rights reserved. | <a href="#" class="text-secondary hover:underline">Privacy Policy</a> | <a href="#" class="text-secondary hover:underline">Terms of Service</a></p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Login/Register Modal -->
+    <div id="authModal" class="fixed inset-0 bg-black/50 backdrop-blur flex items-center justify-center z-50 hidden p-4">
+      <div class="glass-effect rounded-2xl p-10 max-w-md w-full relative shadow-elevated">
+        <button id="closeModal" class="absolute top-6 right-6 text-gray-500 hover:text-gray-700 text-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">✕</button>
+        <div id="loginForm">
+          <h2 class="text-3xl font-bold text-primary mb-8">Login to Your Account</h2>
+          <form class="space-y-4">
+            <div>
+              <label class="block text-gray-700 mb-2 font-semibold" for="loginEmail">Email</label>
+              <input type="email" id="loginEmail" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary bg-white/50" required>
+            </div>
+            <div>
+              <label class="block text-gray-700 mb-2 font-semibold" for="loginPassword">Password</label>
+              <input type="password" id="loginPassword" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary bg-white/50" required>
+            </div>
+            <button type="submit" class="btn-modern w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-accent transition">
+              <span>Login</span>
+            </button>
+          </form>
+          <p class="mt-6 text-center">
+            Don't have an account? <a href="#" id="showRegister" class="text-secondary font-semibold hover:underline">Register</a>
+          </p>
+        </div>
+        <div id="registerForm" class="hidden">
+          <h2 class="text-3xl font-bold text-primary mb-8">Create an Account</h2>
+          <form class="space-y-4">
+            <div>
+              <label class="block text-gray-700 mb-2 font-semibold" for="registerName">Full Name</label>
+              <input type="text" id="registerName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary bg-white/50" required>
+            </div>
+            <div>
+              <label class="block text-gray-700 mb-2 font-semibold" for="registerEmail">Email</label>
+              <input type="email" id="registerEmail" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary bg-white/50" required>
+            </div>
+            <div>
+              <label class="block text-gray-700 mb-2 font-semibold" for="registerPhone">Phone</label>
+              <input type="tel" id="registerPhone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary bg-white/50">
+            </div>
+            <div>
+              <label class="block text-gray-700 mb-2 font-semibold" for="registerDepartment">Department</label>
+              <select id="registerDepartment" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary bg-white/50" required>
+                <option value="">Select your department</option>
+                <option value="men">Men's Ministry</option>
+                <option value="women">Women's Ministry</option>
+                <option value="youth">Youth Fellowship</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-gray-700 mb-2 font-semibold" for="registerPassword">Password</label>
+              <input type="password" id="registerPassword" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary bg-white/50" required>
+            </div>
+            <button type="submit" class="btn-modern w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-accent transition">
+              <span>Register</span>
+            </button>
+          </form>
+          <p class="mt-6 text-center">
+            Already have an account? <a href="#" id="showLogin" class="text-secondary font-semibold hover:underline">Login</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="/js/api.js"></script>
+    <script src="/js/loader.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/main.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        LBSM_AUTH.initNavbarAuthState();
+
+        const loginFormEl = document.querySelector('#loginForm form');
+        const registerFormEl = document.querySelector('#registerForm form');
+
+        if (loginFormEl) {
+          loginFormEl.addEventListener('submit', function (e) {
+            e.preventDefault();
+            LBSM_AUTH.handleLoginSubmit(loginFormEl);
+          });
+        }
+        if (registerFormEl) {
+          registerFormEl.addEventListener('submit', function (e) {
+            e.preventDefault();
+            LBSM_AUTH.handleRegisterSubmit(registerFormEl);
+          });
+        }
+
+        // Load homepage announcements from backend
+        const announcementsContainer = document.getElementById('announcementsContainer');
+        if (announcementsContainer) {
+          LBSM_LOADER.inline(announcementsContainer, 'Loading announcements...');
+          LBSM_API.announcements.homepage()
+            .then(function (data) {
+              const items = (data && data.announcements) || [];
+              if (!items.length) {
+                announcementsContainer.innerHTML = '<p class="text-center text-gray-500">No announcements at this time. Please check back soon.</p>';
+                return;
+              }
+              announcementsContainer.innerHTML = items.map(function (a) {
+                const date = new Date(a.createdAt).toLocaleDateString('en-NG', { year: 'numeric', month: 'long', day: 'numeric' });
+                return '<div class="card-modern p-6 rounded-xl shadow-glass hover-scale">' +
+                  '<div class="flex justify-between items-start mb-2 flex-wrap gap-2">' +
+                  '<h3 class="text-xl font-bold text-primary">' + escapeHtml(a.title) + '</h3>' +
+                  '<span class="text-xs text-gray-400 font-semibold">' + date + '</span>' +
+                  '</div>' +
+                  '<p class="text-gray-700 leading-relaxed">' + escapeHtml(a.content) + '</p>' +
+                  '</div>';
+              }).join('');
+            })
+            .catch(function () {
+              announcementsContainer.innerHTML = '<p class="text-center text-gray-500">Unable to load announcements right now.</p>';
+            });
+        }
+
+        function escapeHtml(str) {
+          const div = document.createElement('div');
+          div.textContent = str || '';
+          return div.innerHTML;
+        }
+      });
+    </script>
+  </body>
+</html>
